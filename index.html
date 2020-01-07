@@ -18,6 +18,7 @@
                         <a href="#" class="navbar-text">
                             <strong>Article</strong>
                         </a>
+                        <button class="btn btn-article">Add Article</button>
                     </div>
                 </div>
             </header>
@@ -28,10 +29,10 @@
                 </div>
             </section> -->
             
-            <section class="articles">
+            <!-- <section class="articles">
                 <div class="container">
                     <div class="row" id="row">
-                        <!-- <div class="col" id="column">
+                        <div class="col" id="column">
                             <div class="article-card">
                                 <img class="article-avatar" alt="Thumbnail [100%x225]" 
                                   src="https://s3.amazonaws.com/uifaces/faces/twitter/rdsaunders/128.jpg">
@@ -43,7 +44,7 @@
                                     </div>
                                 </div>
                             </div>
-                        </div> -->
+                        </div>
                     </div>'
                     <nav>
                         <ul class="pagination">
@@ -56,9 +57,36 @@
                         </ul>
                     </nav>
                 </div>
+            </section> -->
+
+            
+            <section class="add-article">
+                <div class="container">
+                    <form>
+                        <div class="form-group">
+                          <label for="author">Author</label>
+                          <input type="text" class="form-style" id="author" placeholder="Enter email">
+                        </div>
+                        <div class="form-group">
+                          <label for="avatar">Avatar</label>
+                          <input type="file" class="form-style" name="myImage" accept="image/x-png,image/gif,image/jpeg" />
+                          <!-- <input type="password" class="form-style" id="avatar" placeholder="Password"> -->
+                        </div>
+                        <div class="form-group">
+                            <label for="title">Title</label>
+                            <input type="text" class="form-style" id="title" placeholder="Enter Title">
+                          </div>
+                          <div class="form-group">
+                            <label for="url">Url</label>
+                            <input type="text" class="form-style" id="url" placeholder="Enter Url">
+                          </div>
+                        <button type="submit" class="btn btn-primary">Submit</button>
+                    </form>
+                </div>
             </section>
             
         </main>
+        
     </body>
     <script src="js/main.js"></script>
 </html>
