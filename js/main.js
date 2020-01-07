@@ -1,21 +1,26 @@
 const row = document.querySelector('#row');
-const previous = document.querySelector('#previous');
-const next = document.querySelector('#next');
+const addArticleBtn = document.querySelector('#addArticleBtn');
+const addArticleForm = document.querySelector('.add-article-form');
+const articles = document.querySelector('.articles');
+const discardArticle = document.querySelector('#discardArticle');
+
+
+addArticleBtn.addEventListener('click', () => {
+    addArticleForm.style.display = 'block';
+    articles.style.display = 'none';
+})
+
+discardArticle.addEventListener('click', () => {
+    addArticleForm.style.display = 'none';
+    articles.style.display = 'block';
+})
+
 
 let currentPage = 1;
 
 const url = 'http://5e0df4b536b80000143db9ca.mockapi.io/etranzact/v1/article'
 
 
-previous.addEventListener('click', () =>{
-    currentPage -= 1;
-    displayCoins(currentPage);
-  });
-  
-  next.addEventListener ('click', () => {
-    currentPage += 1;
-    displayCoins(currentPage);
-  });
 
 // Get article from API
 const getAllArticles = async () => {
@@ -53,3 +58,45 @@ const displayArticles = (articles) =>{
 }
 
 getAllArticles();
+
+
+const addArticle = document.querySelector('#addArticle');
+
+addArticle.addEventListener('submit', (e) => {
+    e.preventDefault();
+   
+
+    let author = document.querySelector('#author');
+    let title = document.querySelector('#title');
+    let urlInput = document.querySelector('#url');
+
+    const data = {
+        author: author.value,
+        title: title.value,
+        url: urlInput.value,
+    };
+
+    createNewArticle(data);
+    addArticleForm.style.display = 'none';
+    articles.style.display = 'block';
+})
+
+//Create new article
+const createNewArticle = async (data) => {
+    try {
+        const response = await fetch(url, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(data)
+        });
+        if (!response.ok) {
+            throw new Error('Network response was not ok');
+        }
+        const result = await response.json();
+        window.alert('Article Successfully Created')
+    } catch (error) {
+        console.log('Error with message', error.statusText)
+    }
+};

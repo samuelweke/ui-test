@@ -18,7 +18,7 @@
                         <a href="#" class="navbar-text">
                             <strong>Article</strong>
                         </a>
-                        <button class="btn btn-article">Add Article</button>
+                        <button id="addArticleBtn" class="btn btn-article">Add Article</button>
                     </div>
                 </div>
             </header>
@@ -29,7 +29,7 @@
                 </div>
             </section> -->
             
-            <!-- <section class="articles">
+            <section class="articles">
                 <div class="container">
                     <div class="row" id="row">
                         <div class="col" id="column">
@@ -57,30 +57,30 @@
                         </ul>
                     </nav>
                 </div>
-            </section> -->
+            </section>
 
             
-            <section class="add-article">
+            <section class="add-article-form">
                 <div class="container">
-                    <form>
+                    <form id="addArticle">
                         <div class="form-group">
                           <label for="author">Author</label>
-                          <input type="text" class="form-style" id="author" placeholder="Enter email">
+                          <input type="text" class="form-style" id="author" placeholder="Enter Author" required>
                         </div>
                         <div class="form-group">
                           <label for="avatar">Avatar</label>
-                          <input type="file" class="form-style" name="myImage" accept="image/x-png,image/gif,image/jpeg" />
-                          <!-- <input type="password" class="form-style" id="avatar" placeholder="Password"> -->
+                          <input type="file" id="avatar" class="form-style" name="myImage" accept="image/x-png,image/jpeg" />
                         </div>
                         <div class="form-group">
                             <label for="title">Title</label>
-                            <input type="text" class="form-style" id="title" placeholder="Enter Title">
-                          </div>
-                          <div class="form-group">
-                            <label for="url">Url</label>
-                            <input type="text" class="form-style" id="url" placeholder="Enter Url">
-                          </div>
-                        <button type="submit" class="btn btn-primary">Submit</button>
+                            <input type="text" class="form-style" id="title" placeholder="Enter Title" required>
+                        </div>
+                        <div class="form-group">
+                        <label for="url">Url</label>
+                        <input type="text" class="form-style" id="url" placeholder="Enter Url" required>
+                        </div>
+                        <button id="discardArticle" type="button" class="btn btn-discard">Discard</button>
+                        <button type="submit" class="btn btn-submit">Submit</button>
                     </form>
                 </div>
             </section>
