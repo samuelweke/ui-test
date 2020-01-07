@@ -1,18 +1,34 @@
 const row = document.querySelector('#row');
-// const column = document.querySelector('#column');
+const previous = document.querySelector('#previous');
+const next = document.querySelector('#next');
+
+let currentPage = 1;
 
 const url = 'http://5e0df4b536b80000143db9ca.mockapi.io/etranzact/v1/article'
 
-const getAllArticles = () => {
-    fetch( url + '?page=1&limit=15')
-    .then(response => {
+
+previous.addEventListener('click', () =>{
+    currentPage -= 1;
+    displayCoins(currentPage);
+  });
+  
+  next.addEventListener ('click', () => {
+    currentPage += 1;
+    displayCoins(currentPage);
+  });
+
+// Get article from API
+const getAllArticles = async () => {
+    try {
+        const response = await fetch( url + '?page=1&limit=12');
         if (!response.ok) {
             throw new Error('Network response was not ok');
-          }
-        return response.json();
-    })
-    .then(data => displayArticles(data))
-    .catch(error => console.log('Error with message', error.statusText))
+        }
+        const data = await response.json();
+        return data = displayArticles(data);
+    } catch (error) {
+        console.log('Error with message', error.statusText)
+    }
 };
 
 const displayArticles = (articles) =>{

@@ -13,6 +13,13 @@ body {
     background-color: #fff;
 }
 
+header{
+    position: fixed;
+    right: 0;
+    left: 0;
+    z-index: 1030;
+}
+
 a {
     text-decoration: none;
     background-color: transparent;
@@ -70,7 +77,7 @@ p {
 
 .articles {
     padding-bottom: 3rem;
-    padding-top: 3rem;
+    padding-top: 6rem;
     background-color: #f8f9fa;
 }
 
@@ -150,6 +157,41 @@ p {
     color: #fff;
     background-color: #6c757d;
     border-color: #6c757d;
+}
+
+.pagination{
+    display: flex;
+    padding-left: 0;
+    list-style: none;
+    border-radius: .25rem;
+    justify-content: center!important;
+}
+.page-link {
+    position: relative;
+    display: block;
+    padding: .5rem .75rem;
+    margin-left: -1px;
+    line-height: 1.25;
+    color: #007bff;
+    background-color: #fff;
+    border: 1px solid #dee2e6;
+}
+.page-item:first-child .page-link {
+    margin-left: 0;
+    border-top-left-radius: .25rem;
+    border-bottom-left-radius: .25rem;
+}
+
+.page-item:last-child .page-link {
+    border-top-right-radius: .25rem;
+    border-bottom-right-radius: .25rem;
+}
+
+.page-link:hover {
+    color: #0056b3;
+    text-decoration: none;
+    background-color: #e9ecef;
+    border-color: #dee2e6;
 }
 
 @media screen and  (min-width: 576px){
